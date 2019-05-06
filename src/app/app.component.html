@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <mat-card class="card">
+    <form [formGroup]="form" (submit)="submit()" novalidate class="form">
+      <mat-form-field>
+        <input matInput formControlName="search" placeholder="Введите город">
+      </mat-form-field>
+      <button mat-raised-button class="button-search" color="primary">Искать</button>
+    </form>
+    <mat-form-field *ngIf="data">
+        <mat-label>Сортировка</mat-label>
+        <mat-select [(value)]="selected"  [(ngModel)]="value" (ngModelChange)="onSortChange(value)">
+          <mat-option *ngFor="let item of sortList" [value]="item.id">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </mat-card>
+  <app-weather [dataWeather]="data"></app-weather>
+  <app-notfound *ngIf="flagError" [notFound]="error"></app-notfound>
+</div>

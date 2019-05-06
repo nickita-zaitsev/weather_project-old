@@ -1,0 +1,17 @@
+<mat-card class="card" *ngFor='let item of dataWeather'>
+  <p class="date">{{item.date}}</p>
+  <mat-grid-list cols="2" rowHeight="4:1">
+      <mat-grid-tile>
+          <p>Температура: <span>{{item.temp}}&deg;</span></p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Давление: {{item.pressure}} мм.рт.ст.</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Влажность: {{item.humidity}}%</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <p>Погода: {{item.weather}}</p>
+      </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
